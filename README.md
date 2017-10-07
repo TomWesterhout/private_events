@@ -1,4 +1,4 @@
-This project is part of the Advanced Forms and Active Record chapter of the Ruby on Rails section from The Odin Project.
+This project is part of the Advanced Forms and Active Record chapter from the Ruby on Rails section on The Odin Project.
 
 The task at hand was to setup a Ruby on Rails webapplication containing features similair to the well known event organisation platform Eventbrite.
 
