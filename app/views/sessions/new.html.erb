@@ -1,0 +1,12 @@
+<%= form_for(:session, url: signup_path) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+
+	<%= f.label :password %>
+	<%= f.password_field :password, class: 'form-control' %>
+
+	<%= f.label :remember_me, class: 'checkbox-inline' %>
+	<%= f.check_box :remember_me %>
+
+	<%= f.submit 'Log in', class: 'btn btn-primary' %>
+<% end %>
