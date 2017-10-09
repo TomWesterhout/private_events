@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:success] = "Registered successfully."
+			flash[:info] = "Registered successfully."
 			redirect_to root_url
 		else
 			render 'new'
