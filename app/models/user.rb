@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+	has_many :hosted_events, foreign_key: "host_id", class_name: "Event", dependent: :destroy
+	has_many :invites, foreign_key: "attendee_id", dependent: :destroy
+	has_many :attended_events, through: :invites, source: "event", dependent: :destroy
 	attr_accessor :remember_token
 	validates :name, presence: true, length: { maximum: 30 }
 	has_secure_password
