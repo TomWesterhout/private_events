@@ -3,5 +3,16 @@
 		<h1>
 			<%= @user.name %>
 		</h1>
+		<% if @user.events.any? %>
+			<% @user.events.each do |event| %>
+				<div>
+					<ul>
+						<li><h3><%= event.name %></h3></li>
+						<li><%= event.location %></li>
+						<li><%= event.date %></li>
+					</ul>
+				</div>
+			<% end %>
+		<% end %>
 	</section>
 </div>
