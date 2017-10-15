@@ -6,10 +6,11 @@
 				<div>
 					<ul>
 						<li><h3><%= event.name %></h3></li>
-						<li><%= event.description %></li>
-						<li><%= event.location %></li>
-						<li><%= event.date %></li>
-						<li><%= event.time %></li>
+						<li>Description: <%= event.description %></li>
+						<li>Location: <%= event.location %></li>
+						<li>Date: <%= event.date.strftime("%d-%m-%Y") %></li>
+						<li>Time: <%= event.time.strftime("%H:%M") %></li>
+						<li>Hosted by: <%= event.host.name %></li>
 					</ul>
 				</div>
 			<% end %>
