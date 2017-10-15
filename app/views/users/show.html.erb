@@ -1,10 +1,11 @@
+<% provide(:title, @user.name) %>
 <div class="row">
 	<section class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
 		<h1>
 			<%= @user.name %>
 		</h1>
-		<% if @user.events.any? %>
-			<% @user.events.each do |event| %>
+		<% if @user.hosted_events.any? %>
+			<% @user.hosted_events.each do |event| %>
 				<div>
 					<ul>
 						<li><h3><%= event.name %></h3></li>

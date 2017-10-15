@@ -9,14 +9,19 @@ class EventsController < ApplicationController
 	end
 
 	def new
-		@event = Event.new
+		if current_user.nil?
+			flash[:warning] = "Please log in to create an event"
+			redirect_to login_path
+		else
+			@event = Event.new
+		end
 	end
 
 	def create
-		@event = current_user.events.build(event_params)
+		@event = current_user.hosted_events.build(event_params)
 		if @event.save
 			flash[:success] = "Event successfully created"
-			redirect_to root_url
+			redirect_to @event
 		else
 			flash[:warning] = "Invalid submission"
 			render 'new'
