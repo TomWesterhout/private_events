@@ -22,4 +22,11 @@ class EventsController < ApplicationController
 			render 'new'
 		end
 	end
+
+	private
+
+		# Whitelists certain parameters to be used for mass assignment.
+		def event_params
+			params.require(:event).permit(:name, :description, :location, :date, :time)
+		end
 end
