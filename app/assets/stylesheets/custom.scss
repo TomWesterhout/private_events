@@ -51,6 +51,12 @@ a {
 	}
 }
 
+.jumbotron {
+	background-image: url('app/assets/images/background_02.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 /* styling for the centering of the signup button */
 .centered {
 	text-align: center;

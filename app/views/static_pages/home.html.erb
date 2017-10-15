@@ -1,6 +1,8 @@
 <div class="center jumbotron">
 	<h1>Welcome to Private Events</h1>
 	<% if !logged_in? %>
-		<%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary center-block" %>
+		<div class="centered">
+			<%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+		</div>
 	<% end %>
 </div>
