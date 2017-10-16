@@ -1,1 +1,24 @@
 <% provide(:title, @event.name) %>
+<div class="row">
+	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+		<ul>
+			<li><h3><%= @event.name %></h3></li>
+			<li><%= @event.description %></li>
+			<li><%= @event.location %></li>
+			<li><%= @event.date.strftime("%d-%m-%Y") %></li>
+			<li><%= @event.time.strftime("%H:%M") %></li>
+		</ul>
+	</aside>
+	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+		<ul>
+			<li><h3>Attendees</h3></li>
+			<% if @attendees.any? %>
+				<% @attendees.each do |attendee| %>
+					<li><%= attendee.name %></li>
+				<% end %>
+			<% else %>
+				<li><%= @event.name %> doesn't have any attendees yet.</li>
+			<% end %>
+		</ul>
+	</aside>
+</div>
