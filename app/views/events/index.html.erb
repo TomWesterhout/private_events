@@ -1,6 +1,7 @@
 <% provide(:title, "All events") %>
 <div class="row">
 	<section class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-1">
+		<h3>Upcoming events</h3>
 		<% if @upcoming_events.any? %>
 			<% @upcoming_events.each do |event| %>
 				<div>
@@ -19,6 +20,7 @@
 		<% end %>
 	</section>
 	<section class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-1">
+		<h3>Past events</h3>
 		<% if @past_events.any? %>
 			<% @past_events.each do |event| %>
 				<div>
@@ -33,7 +35,7 @@
 				</div>
 			<% end %>
 		<% else %>
-			<h3>There are currently no past events to display.</h3>
+			There are currently no past events to display.
 		<% end %>
 	</section>
 </div>

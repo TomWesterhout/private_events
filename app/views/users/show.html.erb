@@ -16,8 +16,8 @@
 		<% end %>
 	</aside>
 	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
+		<h3>Upcoming events</h3>
 		<ul>
-			<li><h3>Upcoming events</h3></li>
 			<% if @upcoming_events.any? %>
 				<% @upcoming_events.each do |upevent| %>
 					<li><%= link_to upevent.name, upevent %></li>
@@ -28,8 +28,8 @@
 		</ul>
 	</div>
 	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
+		<h3>Previous events</h3>
 		<ul>
-			<li><h3>Previous events</h3></li>
 			<% if @previous_events.any? %>
 				<% @previous_events.each do |prevent| %>
 					<li><%= link_to prevent.name, prevent %></li>
