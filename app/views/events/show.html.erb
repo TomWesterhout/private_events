@@ -9,7 +9,7 @@
 			<li><%= @event.time.strftime("%H:%M") %></li>
 		</ul>
 	</aside>
-	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">
 		<ul>
 			<li><h3>Attendees</h3></li>
 			<% if @attendees.any? %>
@@ -20,5 +20,5 @@
 				<li><%= @event.name %> doesn't have any attendees yet.</li>
 			<% end %>
 		</ul>
-	</aside>
+	</div>
 </div>
