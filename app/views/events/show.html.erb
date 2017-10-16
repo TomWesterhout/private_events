@@ -3,10 +3,10 @@
 	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
 		<ul>
 			<li><h3><%= @event.name %></h3></li>
-			<li><%= @event.description %></li>
-			<li><%= @event.location %></li>
-			<li><%= @event.date.strftime("%d-%m-%Y") %></li>
-			<li><%= @event.time.strftime("%H:%M") %></li>
+			<li>Description: <%= @event.description %></li>
+			<li>Location: <%= @event.location %></li>
+			<li>Date: <%= @event.date.strftime("%d-%m-%Y") %></li>
+			<li>Time: <%= @event.time.strftime("%H:%M") %></li>
 		</ul>
 	</aside>
 	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">
