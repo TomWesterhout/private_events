@@ -1,11 +1,9 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 body {
 	background-color: #fff;
-}
-
-header, footer {
-	background-color: #373737;
+	padding-bottom: 150px;
 }
 
 /* Typography */
@@ -37,7 +35,13 @@ nav a {
 	color: #fff
 }
 
-/* Styling of the 'Members Only' upperright logo */
+/* Styling of the nav and footer bar. */
+
+header, footer {
+	background-color: #000;
+}
+
+/* Styling of the Private Events logo */
 
 #logo {
 	font-size: 1.7em;
@@ -52,9 +56,9 @@ nav a {
 }
 
 .jumbotron {
-	background-image: url('app/assets/images/background_02.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
+	background: image-url('bg-slide-01.jpg');
+	background-size: cover;
+	height: 90vh;
 }
 
 /* styling for the centering of the signup button */
@@ -62,27 +66,28 @@ nav a {
 	text-align: center;
 }
 
-/* Styling of the user posts */
+/* Styling for button padding */
+
+.btn-primary {
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+/* Styling of the content lists */
 
 ul {
 	padding: 0;
 }
 
-.posts li {
-  border-radius: 5px;
-  border: 1px solid #D0D0D0;
-  color: #fff;
+.row li {
+  color: #333;
   padding: 1vh;
   margin-bottom: 1vh;
   list-style: none;
   h4, h5, p {
     text-align: center;
-    color: #000;
+    color: #333;
   }
-}
-
-.posts {
-	margin-bottom: 120px;
 }
 
 label {

@@ -1,6 +1,6 @@
 <% provide(:title, @event.name) %>
 <div class="row">
-	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
+	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1">
 		<h1>Event</h1>
 		<ul>
 			<li><h3><%= @event.name %></h3></li>
@@ -10,7 +10,7 @@
 			<li>Time: <%= @event.time.strftime("%H:%M") %></li>
 		</ul>
 	</aside>
-	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">
+	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1">
 		<h1>Attendees</h1>
 		<ul>
 			<% if @attendees.any? %>
