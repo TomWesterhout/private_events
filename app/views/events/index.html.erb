@@ -11,7 +11,7 @@
 	<section class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 		<% if @events.any? %>
 			<% @events.each do |event| %>
-				<div>
+				<div class="result">
 					<ul>
 						<li><h3><%= event.name %></h3></li>
 						<li>Description: <%= event.description %></li>
