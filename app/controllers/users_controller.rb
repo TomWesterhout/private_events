@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Registered successfully."
 			redirect_to root_url
 		else
+			flash.now[:warning] = "Invalid information"
 			render 'new'
 		end
 	end
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Profile updated."
 			redirect_to @user
 		else
-			flash[:warning] = "Invalid information"
+			flash.now[:warning] = "Invalid information"
 			render 'edit'
 		end
 	end

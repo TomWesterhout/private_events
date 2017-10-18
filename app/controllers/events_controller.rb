@@ -1,8 +1,13 @@
 class EventsController < ApplicationController
 
 	def index
-		@upcoming_events = Event.upcoming
-		@past_events = Event.past
+		if request.fullpath.include?('upcoming=true')
+			@events = Event.upcoming
+		elsif request.fullpath.include?('past=true')
+			@events = Event.past
+		else
+			@events = Event.all
+		end
 	end
 
 	def show
@@ -25,7 +30,7 @@ class EventsController < ApplicationController
 			flash[:success] = "Event successfully created"
 			redirect_to @event
 		else
-			flash[:warning] = "Invalid submission"
+			flash.now[:warning] = "Invalid submission"
 			render 'new'
 		end
 	end
