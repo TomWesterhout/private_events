@@ -1,19 +1,16 @@
 <% provide(:title, "All events") %>
 <div class="row">
-	<section class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 		<div class="btn-group btn-group-justified">
 			<%= link_to "Upcoming events", events_path(upcoming: true) %>
 			<%= link_to "Past events", events_path(past: true) %>
 		</div>
-	</section>
-</div>
-<div class="row">
-	<section class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 		<% if @events.any? %>
 			<% @events.each do |event| %>
-				<div class="result">
+				<div class="result text-center content-div">
 					<ul>
 						<li><h3><%= event.name %></h3></li>
+						<hr>
 						<li>Description: <%= event.description %></li>
 						<li>Location: <%= event.location %></li>
 						<li>Date: <%= event.date.strftime("%d-%m-%Y") %></li>
@@ -25,5 +22,5 @@
 		<% else %>
 			<h3>There are no such events.</h3>
 		<% end %>
-	</section>
+	</div>
 </div>
