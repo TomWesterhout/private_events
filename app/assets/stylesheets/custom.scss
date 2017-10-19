@@ -81,12 +81,19 @@ header, footer {
 	color: #000;
 }
 
+.home {
+	margin-top: 40px;
+}
+
 .content-div {
 	padding: 40px;
 	border: 1px solid transparent;
 	border-radius: 8px;
 	background-color: rgba(55,55,55,0.6);
 	margin-bottom: 20px;
+	h1 {
+		color: #fff;
+	}
 }
 
 /* styling for the centering of the signup button */
@@ -122,15 +129,18 @@ ul {
 	padding: 0;
 }
 
-form li {
-  color: #000;
-  padding: 1vh;
-  margin-bottom: 1vh;
-  list-style: none;
-  h4, h5, p {
-    text-align: center;
-    color: #000;
-  }
+form {
+	color: #fff;
+	li {
+		color: #000;
+  	padding: 1vh;
+  	margin-bottom: 1vh;
+  	list-style: none;
+  	h4, h5, p {
+  		text-align: center;
+  		color: #000;
+  	}
+	}
 }
 
 .result li {
