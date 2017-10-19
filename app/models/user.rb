@@ -30,11 +30,11 @@ class User < ApplicationRecord
 		update_attribute(:remember_digest, nil)
 	end
 
-	def upcoming_events
-		self.attended_events.where("date > ?", DateTime.now).order("date ASC")
+	def upcoming
+		self.where("date > ?", DateTime.now).order("date ASC")
 	end
 
-	def previous_events
-		self.attended_events.where("date < ?", DateTime.now).order("date ASC")
+	def past
+		self.where("date < ?", DateTime.now).order("date ASC")
 	end
 end

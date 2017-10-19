@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
+	before_action :correct_user, only: [:edit, :update]
 
 	def show
 		@user = User.find(params[:id])
-		@upcoming_events = @user.upcoming_events
-		@previous_events = @user.previous_events
+		@events = []
+		if request.fullpath.include?('host_upcoming=true')
+			@events = @user.hosted_events.upcoming
+		elsif request.fullpath.include?('host_past=true')
+			@events = @user.hosted_events.past
+		elsif request.fullpath.include?('attend_upcoming=true')
+			@events = @user.attended_events.upcoming
+		elsif request.fullpath.include?('attend_past=true')
+			@events = @user.attended_events.past
+		end
 	end
 
 	def new
@@ -22,8 +31,6 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(params[:id])
-		redirect_to root_url if @user != current_user
 	end
 
 	def update
@@ -40,5 +47,10 @@ class UsersController < ApplicationController
 
 		def user_params
 			params.require(:user).permit(:name, :password, :password_confirmation)
+		end
+
+		def correct_user
+			@user = User.find(params[:id])
+			redirect_to root_url unless @user == current_user
 		end
 end

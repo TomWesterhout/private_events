@@ -1,42 +1,32 @@
 <% provide(:title, @user.name) %>
+
 <div class="row">
-	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0">
-		<h1><%= @user.name %></h1>
-		<% if @user.hosted_events.any? %>
-			<h3 class="text-center">Hosted events</h3>
-			<% @user.hosted_events.each do |event| %>
+	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+		<div class="btn-group btn-group-justified">
+			<%= link_to "Hosted upcoming events", user_path(current_user, host_upcoming: true), class: 'btn btn-info btn-small' %>
+			<%= link_to "Hosted past events", user_path(current_user, host_past: true), class: 'btn btn-info btn-small' %>
+			<%= link_to "Attended upcoming events", user_path(current_user, attend_upcoming: true), class: 'btn btn-info btn-small' %>
+			<%= link_to "Attended past events", user_path(current_user, attend_past: true), class: 'btn btn-info btn-small' %>
+		</div>
+		<% if @events.any? %>
+			<% @events.each do |event| %>
+				<div class="result content-div">
 					<ul class="text-center">
-						<li><h4><%= event.name %></h4></li>
-						<li>Description: <%= event.description %></li>
-						<li>Location: <%= event.location %></li>
+						<li><h2><%= link_to event.name, event %></h2></li>
+						<hr>
+						<li>Description: <%= event.name %></li>
+						<li>Location: <%= event.description %></li>
 						<li>Date: <%= event.date.strftime("%d-%m-%Y") %></li>
 						<li>Time: <%= event.time.strftime("%H:%M") %></li>
 					</ul>
+				</div>
 			<% end %>
+		<% else %>
+			<div class="result content-div">
+				<ul class="text-center">
+					<li><h2>No events to display</h2></li>
+				</ul>
+			</div>
 		<% end %>
-	</aside>
-	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
-		<h3>Upcoming events</h3>
-		<ul>
-			<% if @upcoming_events.any? %>
-				<% @upcoming_events.each do |upevent| %>
-					<li><%= link_to upevent.name, upevent %></li>
-				<% end %>
-			<% else %>
-				<li>No invites for upcoming events.</li>
-			<% end %>
-		</ul>
-	</div>
-	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-1">
-		<h3>Previous events</h3>
-		<ul>
-			<% if @previous_events.any? %>
-				<% @previous_events.each do |prevent| %>
-					<li><%= link_to prevent.name, prevent %></li>
-				<% end %>
-			<% else %>
-				<li>No previous events attended.</li>
-			<% end %>
-		</ul>
 	</div>
 </div>
