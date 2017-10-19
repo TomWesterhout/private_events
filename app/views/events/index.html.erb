@@ -9,7 +9,7 @@
 			<% @events.each do |event| %>
 				<div class="result text-center content-div">
 					<ul>
-						<li><h3><%= event.name %></h3></li>
+						<li><button class="btn btn-primary center-block"><%= link_to event.name, event %></button></li>
 						<hr>
 						<li>Description: <%= event.description %></li>
 						<li>Location: <%= event.location %></li>
