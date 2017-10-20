@@ -1,25 +1,27 @@
 <% provide(:title, "Create event") %>
 <div class="row">
-	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 content-div">
-		<h1>Create a new event</h1>
-		<%= form_for(@event, url: events_path) do |f| %>
-		
-			<%= f.label :name %>
-			<%= f.text_field :name, class: 'form-control' %>
-		
-			<%= f.label :description %>
-			<%= f.text_area :description, class: 'form-control' %>
-		
-			<%= f.label :location %>
-			<%= f.text_field :location, class: 'form-control' %>
-		
-			<%= f.label :date %>
-			<%= f.date_field :date, class: 'form-control' %>
-		
-			<%= f.label :time %>
-			<%= f.time_field :time, class: 'form-control' %>
-			<br>
-			<%= f.submit "Create event", class: 'btn btn-primary center-block' %>
-		<% end %>
+	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+		<div class="content-div">
+			<h2>Create a new event</h2>
+			<%= form_for(@event, url: events_path) do |f| %>
+			
+				<%= f.label :name %>
+				<%= f.text_field :name, class: 'form-control' %>
+			
+				<%= f.label :description %>
+				<%= f.text_area :description, class: 'form-control' %>
+			
+				<%= f.label :location %>
+				<%= f.text_field :location, class: 'form-control' %>
+			
+				<%= f.label :date %>
+				<%= f.date_field :date, class: 'form-control' %>
+			
+				<%= f.label :time %>
+				<%= f.time_field :time, class: 'form-control' %>
+				<br>
+				<%= f.submit "Create event", class: 'btn btn-primary center-block' %>
+			<% end %>
+		</div>
 	</div>
 </div>

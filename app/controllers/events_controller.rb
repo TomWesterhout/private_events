@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 		elsif request.fullpath.include?('past=true')
 			@events = Event.past
 		else
-			@events = Event.all
+			@events = Event.order('date DESC')
 		end
 	end
 
@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 	def create
 		@event = current_user.hosted_events.build(event_params)
 		if @event.save
+			attend_hosted_event(@event)
 			flash[:success] = "Event successfully created"
 			redirect_to @event
 		else
@@ -37,7 +38,7 @@ class EventsController < ApplicationController
 
 	private
 
-		# Whitelists certain parameters to be used for mass assignment.
+		# Whitelists certain parameters to be used for assignment.
 		def event_params
 			params.require(:event).permit(:name, :description, :location, :date, :time)
 		end

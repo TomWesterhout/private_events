@@ -1,25 +1,28 @@
 <% provide(:title, @event.name) %>
 <div class="row">
-	<aside class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1">
-		<h1>Event</h1>
-		<ul>
-			<li><h3><%= @event.name %></h3></li>
-			<li>Description: <%= @event.description %></li>
-			<li>Location: <%= @event.location %></li>
-			<li>Date: <%= @event.date.strftime("%d-%m-%Y") %></li>
-			<li>Time: <%= @event.time.strftime("%H:%M") %></li>
-		</ul>
-	</aside>
-	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1">
-		<h1>Attendees</h1>
-		<ul>
-			<% if @attendees.any? %>
-				<% @attendees.each do |attendee| %>
-					<li><%= link_to attendee.name, attendee %></li>
+	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+		<div class="result content-div">
+			<ul class="text-center">
+				<li><h2><%= @event.name %></h2></li>
+				<hr>
+				<li>Description: <%= @event.description %></li>
+				<li>Location: <%= @event.location %></li>
+				<li>Date: <%= @event.date.strftime("%d-%m-%Y") %></li>
+				<li>Time: <%= @event.time.strftime("%H:%M") %></li>
+			</ul>
+		</div>
+		<div class="result content-div">
+			<ul class="text-center">
+				<li><h2>Attendees</h2></li>
+				<hr>
+				<% if @attendees.any? %>
+					<% @attendees.each do |attendee| %>
+						<li><%= link_to attendee.name, attendee %></li>
+					<% end %>
+				<% else %>
+					<li>No attendees</li>
 				<% end %>
-			<% else %>
-				<li><%= @event.name %> doesn't have any attendees yet.</li>
-			<% end %>
-		</ul>
+			</ul>
+		</div>
 	</div>
 </div>
