@@ -14,12 +14,12 @@
 					<p>This event has already taken place.</p>
 				<% elsif @event.attendees.include?(current_user) %>
 					<%= form_for(:invite, url: invite_path, html: { method: :delete }) do |f| %>
-						<%= f.submit "Leave event", class: 'form-control btn btn-small btn-danger' %>
+						<%= f.submit "Leave event", class: 'center-block btn btn-danger' %>
 					<% end %>
 				<% else %>
 					<%= form_for(:invite, url: invites_path) do |f| %>
 						<%= f.hidden_field :event_id, value: @event.id %>
-						<%= f.submit 'Attend event', class: 'form-control btn btn-success' %>
+						<%= f.submit 'Attend event', class: 'center-block btn btn-success' %>
 					<% end %>
 				<% end %>
 		</div>
