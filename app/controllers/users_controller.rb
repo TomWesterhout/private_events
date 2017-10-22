@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@events = []
 		if request.fullpath.include?('host_upcoming=true')
 			@events = @user.hosted_events.upcoming
 		elsif request.fullpath.include?('host_past=true')
@@ -12,6 +11,8 @@ class UsersController < ApplicationController
 			@events = @user.attended_events.upcoming
 		elsif request.fullpath.include?('attend_past=true')
 			@events = @user.attended_events.past
+		else 
+			@events = @user.hosted_events
 		end
 	end
 

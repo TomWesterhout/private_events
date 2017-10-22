@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+	before_action :check_for_sign_in, only: [:index, :show]
 
 	def index
 		if request.fullpath.include?('upcoming=true')
@@ -41,5 +42,9 @@ class EventsController < ApplicationController
 		# Whitelists certain parameters to be used for assignment.
 		def event_params
 			params.require(:event).permit(:name, :description, :location, :date, :time)
+		end
+
+		def check_for_sign_in
+			redirect_to root_url if current_user.nil?
 		end
 end
